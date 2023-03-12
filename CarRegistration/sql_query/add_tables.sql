@@ -1,0 +1,16 @@
+CREATE TABLE Users
+(
+    Id INT IDENTITY(1,1) NOT NULL CONSTRAINT User_Id PRIMARY KEY,
+    Login NVARCHAR(20),
+    Password NVARCHAR(20),
+    Role VARCHAR(20)
+)
+
+CREATE TABLE Cars
+(
+    Id INT IDENTITY(1,1) NOT NULL CONSTRAINT Car_Id PRIMARY KEY,
+    Model NVARCHAR(20),
+    RegistrationNumber NVARCHAR(20),
+    UserId INT,
+	FOREIGN KEY (UserId) REFERENCES Users(Id)
+)
